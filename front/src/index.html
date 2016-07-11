@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="galleryApp">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <title>#title</title>
+
+    <!-- LIBS -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <link href="/bower_components/normalize-css/normalize.css" rel="stylesheet" type="text/css"/>
+
+    <!-- STYLESHEETS -->
+    <link href="/stylesheets/main.css" rel="stylesheet" type="text/css"/>
+    <link href="/stylesheets/editPhotoWindow.css" rel="stylesheet" type="text/css"/>
+
+    <!-- APPS -->
+    <script src="/javascript/main.js"></script>
+
+    <!-- ENTITIES -->
+    <script src="/javascript/entities/EditPhoto.js"></script>
+    <script src="/javascript/entities/UploadPhoto.js"></script>
+
+    <!-- CONTROLLERS -->
+    <script src="/javascript/controllers/UploadPhotosBlockCtrl.js"></script>
+    <script src="/javascript/controllers/EditPhotoCtrl.js"></script>
+
+    <!-- DIRECTIVES -->
+    <script src="/javascript/directives/uploadPhotosBlock.js"></script>
+    <script src="/javascript/directives/editPhotoCanvas.js"></script>
+
+    <!-- SERVICES -->
+    <script src="/javascript/services/EditPhotoService.js"></script>
+    <script src="/javascript/services/UploadFileService.js"></script>
+</head>
+<body>
+
+<div class="photoGroup">
+    <h3 class="groupTitle">16 Марта 2016</h3>
+    <div class="photos">
+        <div class="photoBlock">
+            <img class="photoItem" src="/images/photos/1.jpg" alt="My photo"/>
+            <div class="photoHover">
+            </div>
+        </div>
+        <div class="photoBlock">
+            <img class="photoItem" src="/images/photos/2.jpg"/>
+            <div class="photoHover">
+            </div>
+        </div>
+        <div class="photoBlock">
+            <img class="photoItem" src="/images/photos/3.jpg"/>
+            <div class="photoHover">
+            </div>
+        </div>
+        <div class="photoBlock">
+            <img class="photoItem" src="/images/photos/4.jpg"/>
+            <div class="photoHover">
+            </div>
+        </div>
+        <div class="photoBlock">
+            <img class="photoItem" src="/images/photos/5.jpg"/>
+            <div class="photoHover">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="uploadPhotosBlock" upload-photos-block ng-controller="UploadPhotosBlockCtrl">
+    <div class="moveUploadPhotosBlockBtn" id="openUploadPhotosBlockBtn" ng-click="showUploadPhotosBlock()"></div>
+    <div class="moveUploadPhotosBlockBtn" id="closeUploadPhotosBlockBtn" ng-click="hideUploadPhotosBlock()"></div>
+
+    <div id="uploadFilesControlsBlock">
+        <div class="uploadFilesControl" id="selectPhotoBtn" ng-click="selectPhotos()"></div>
+        <div class="uploadFilesControl" id="selectVideoBtn" ng-click="selectVideo()"></div>
+        <div class="uploadFilesControl" id="defaultSettingsBtn"></div>
+        <div class="uploadFilesControl" id="uploadToServerBtn"></div>
+        <div class="uploadFilesControl" id="removeAllSelectedFiles"></div>
+    </div>
+
+    <div id="selectedPhotosBlock">
+        <div class="uploadedFileBlock" ng-repeat="uploadFile in UploadFileService.getUploadFiles()">
+            <img class="uploadedPhotoItem" ng-src="{{ uploadFile.thumbnailBase64Url }}" alt="{{ uploadFile.file.name }}"/>
+            <div class="uploadFileControlsBlock">
+                <div class="uploadFileControl removeUploadFileControl" ng-click="removeUploadFile(uploadFile)"></div>
+                <div class="uploadFileControl editUploadFileControl" ng-click="editPhotoItem(uploadFile)"></div>
+                <div class="uploadFileControl settingsUploadFileControl"></div>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="editPhotoWindow" ng-controller="EditPhotoCtrl" ng-show="isVisibleEditor()">
+    <div id="editPhotoControls">
+        <div class="editPhotoControl" id="changeRGBBtn">
+            <div id="changeRGBControls">
+                <label class="changeRGBControl" id="changeRedControl">
+                    <span></span>
+                    <input type="range" min="0" max="255" step="1"/>
+                </label>
+                <label class="changeRGBControl" id="changeGreenControl">
+                    <span></span>
+                    <input type="range" min="0" max="255" step="1"/>
+                </label>
+                <label class="changeRGBControl" id="changeBlueControl">
+                    <span></span>
+                    <input type="range" min="0" max="255" step="1"/>
+                </label>
+            </div>
+        </div>
+        <div class="editPhotoControl" id="closeEditPhotoWindowBtn" ng-click="closeEditor()"></div>
+        <div class="editPhotoControl" id="saveEditedPhotoBtn"></div>
+        <div style="clear: both"></div>
+    </div>
+    <canvas id="editPhotoCanvas" edit-photo-canvas></canvas>
+</div>
+
+</body>
+</html>

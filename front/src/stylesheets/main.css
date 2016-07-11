@@ -1,0 +1,179 @@
+body {
+    margin: 0;
+}
+
+.photoGroup{
+    margin: 6px;
+}
+
+.groupTitle {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    margin-bottom: 6px;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+
+.photoBlock {
+    /*margin-right: 4px;*/
+    position: relative;
+    display: inline-block;
+    height: 200px;
+}
+
+.photoItem {
+    height: inherit;
+}
+
+.photoHover {
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 200px;
+    width: 100%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.5) url("/images/zoom-interface.png") center no-repeat;
+}
+
+.photoHover:hover {
+    opacity: 1;
+}
+
+.zoomPhotoBtn{
+    position: relative;
+    top: 50%;
+    margin-top: -32px;
+}
+
+
+#uploadPhotosBlock{
+    border-top: 2px solid #2c3e50;
+    position: fixed;
+    height: 250px;
+    width: 100%;
+    bottom: -250px;
+    background: #ffffff;
+}
+
+.moveUploadPhotosBlockBtn{
+    cursor: pointer;
+    position: absolute;
+    top: -50px;
+    right: 50px;
+    height: 50px;
+    width: 50px;
+    background: red;
+}
+
+#openUploadPhotosBlockBtn{
+    background: url("/images/upload.png") center no-repeat;
+}
+
+#closeUploadPhotosBlockBtn{
+    display: none;
+    background: url("/images/expand-button.png") center no-repeat;
+}
+
+
+
+#uploadFilesControlsBlock{
+    /*margin-right: 4px;*/
+    position: relative;
+    z-index: 2;
+    float: left;
+    background: #2c3e50;
+    height: 250px;
+    width: 50px;
+    -webkit-box-shadow: 0 0 5px 0 #2c3e50;
+    box-shadow: 0 0 5px 0 #2c3e50;
+}
+
+.uploadFilesControl{
+    float: left;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.uploadFilesControl:hover{
+    background-color: rgba(255,255,255,0.1);
+}
+.uploadFilesControl#selectPhotoBtn{
+    background-image: url("/images/addPhoto.png");
+
+}
+.uploadFilesControl#selectVideoBtn{
+    background-image: url("/images/addVideo.png");
+}
+.uploadFilesControl#defaultSettingsBtn{
+    background-image: url("/images/settings.png");
+}
+.uploadFilesControl#uploadToServerBtn{
+    background-image: url("/images/upload_to_server.png");
+}
+.uploadFilesControl#removeAllSelectedFiles{
+    background-image: url("/images/remove.png");
+}
+
+
+
+#selectedPhotosBlock {
+    position: relative;
+    white-space: nowrap;
+}
+#selectedPhotosBlock .photoBlock{
+    height: 250px;
+}
+
+.uploadedFileBlock {
+    position: relative;
+    display: inline-block;
+    height: 250px;
+}
+
+.uploadedPhotoItem {
+    height: inherit;
+}
+
+
+
+
+
+
+.uploadFileControlsBlock{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(44, 62, 80, 0.6);
+    display: none;
+}
+.uploadedFileBlock:hover .uploadFileControlsBlock{
+    display: block;
+}
+
+.uploadFileControl{
+    cursor: pointer;
+    float: right;
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.uploadFileControl:hover{
+    background-color: rgba(255,255,255,0.1);
+}
+
+.editUploadFileControl{
+    background-image: url("/images/editPhoto.png");
+}
+.removeUploadFileControl{
+    float: left;
+    background-image: url("/images/remove.png");
+}
+.settingsUploadFileControl{
+    background-image: url("/images/settings.png");
+}

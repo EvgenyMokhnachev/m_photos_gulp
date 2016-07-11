@@ -1,0 +1,119 @@
+#editPhotoWindow{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background: white;
+}
+
+#editPhotoControls{
+    -webkit-box-shadow: 0 0 2px 0 rgba(0,0,0,1);
+    box-shadow: 0 0 2px 0 rgba(0,0,0,1);
+    width: 100%;
+    background: #2c3e50
+}
+.editPhotoControl{
+    float: left;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.editPhotoControl:hover{
+    background-color: rgba(255,255,255,0.2);
+}
+
+.editPhotoControl#changeRGBBtn{
+    background-image: url("/images/rgb_icon.png");
+}
+.editPhotoControl#closeEditPhotoWindowBtn{
+    background-image: url("/images/close_white_32.png");
+    float: right;
+}
+.editPhotoControl#saveEditedPhotoBtn{
+    background-image: url("/images/save_white_32.png");
+    float: right;
+}
+
+
+#changeRGBControls{
+    cursor: default;
+    -webkit-box-shadow: 0 0 2px 0 rgba(0,0,0,1);
+    box-shadow: 0 0 2px 0 rgba(0,0,0,1);
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background: rgba(68, 95, 123, 0.5);
+}
+
+.changeRGBControls{
+    width: 200px;
+    height: 4px;
+    margin: 28px 29px;
+    border-radius: 2px;
+}
+
+.changeRGBControl{
+    display: block;
+    margin: 15px;
+}
+.changeRGBControl span{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+.changeRGBControl#changeRedControl span{
+    background: red;
+}
+.changeRGBControl#changeGreenControl span{
+    background: green;
+}
+.changeRGBControl#changeBlueControl span{
+    background: blue;
+}
+.changeRGBControl input{
+    display: inline-block;
+    height: 25px;
+    width: 255px;
+}
+
+
+/*.changeRGBControl#changeRedControl{*/
+    /*background: rgb(255,90,90);*/
+/*}*/
+/*.changeRGBControl#changeGreenControl{*/
+    /*background: rgb(90,255,90);*/
+/*}*/
+/*.changeRGBControl#changeBlueControl{*/
+    /*background: rgb(90,90,255);*/
+/*}*/
+
+/*.changeRGBControlScroller{*/
+    /*cursor: pointer;*/
+    /*width: 16px;*/
+    /*height: 16px;*/
+    /*border-radius: 50%;*/
+    /*border: 2px solid white;*/
+    /*top: -8px;*/
+    /*position: relative;*/
+/*}*/
+/*#changeRedControl .changeRGBControlScroller{*/
+    /*background: red;*/
+/*}*/
+/*#changeGreenControl .changeRGBControlScroller{*/
+    /*background: green;*/
+/*}*/
+/*#changeBlueControl .changeRGBControlScroller{*/
+    /*background: blue;*/
+/*}*/
+
+
+
+#editPhotoCanvas{
+    display: block;
+    margin: 5px auto;
+    max-width: 95%;
+}

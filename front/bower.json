@@ -1,0 +1,21 @@
+{
+  "name": "m_photos_front",
+  "description": "Media gallary",
+  "version": "1.0.0",
+  "authors": [
+    "Evgeny Mokhnachev"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.0.0",
+    "normalize-css": "normalize.css#^4.1.1",
+    "angular": "^1.5.7"
+  }
+}
